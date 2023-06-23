@@ -3,6 +3,11 @@
 
 <% if current_user %>
   <p>Hello <%= current_user.email %>! </p>
+  <p>You are [<%= current_user.role %>] </p>
+  <% if current_user.admin? %>
+  <br />
+    There are <%= User.count %> user/s in the system.
+  <% end %>
   <p>
     You have successfully authenticated with your Devise account. 
     You are now ready to interact with this application
